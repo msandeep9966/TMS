@@ -1,0 +1,11 @@
+<p>home works!</p>
+
+<p>value: {{value}}</p>
+<p>redirectUrl: {{redirectUrl}}</p>
+<p>loggedIn: {{loggedIn}}</p>
+<p>!loggedIn: {{!loggedIn}}</p>
+<a routerLink="{{redirectUrl}}">Go to {{redirectUrl}}</a><br>
+<a *ngIf="!loggedIn" routerLink="/login">Login</a>
+<button *ngIf="loggedIn" (click)="logout()">Logout</button>
+
+
