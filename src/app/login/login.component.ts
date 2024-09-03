@@ -18,10 +18,7 @@ export class LoginComponent {
   hello: string = 'hello';
   isEmployee: any;
 
-  constructor(
-    public r: Router,
-    public o: APIServiceService,
-  ) { }
+  constructor(public r: Router, public o: APIServiceService) {}
 
   applycss() {
     let a = {

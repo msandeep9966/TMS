@@ -1,7 +1,7 @@
 <p>login works!</p>
 
-<form #fr="ngForm" (submit)="MyLoginFunction(fr.value)" >
-  <div style="margin: 200px, width: 500px">
+<form #fr="ngForm" (submit)="MyLoginFunction(fr.value)">
+  <div style="margin: 200px; width: 500px">
     <label>UserName</label>
     <input
       type="text"
@@ -11,25 +11,33 @@
       [class.b]="u.valid"
       required
       pattern="[a-z]+"
-      class="form-control"
+      class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       name="email"
     />
-    <div style="color: white; background-color: red;">
-    <div *ngIf="u.errors?.['required'] && u.touched">Enter Username</div>
-    <div *ngIf="u.errors?.['pattern'] && u.touched">Enter only Alphebets</div>
+    <div style="color: white; background-color: red">
+      <div *ngIf="u.errors?.['required'] && u.touched">Enter Username</div>
+      <div *ngIf="u.errors?.['pattern'] && u.touched">Enter only Alphebets</div>
     </div>
     <label>PassWord</label>
-    <input type="password" ngModel class="form-control" name="password" />
+    <input
+      type="password"
+      ngModel
+      class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      name="password"
+    />
     {{ fr.value | json }} <br />
-    New User?<input
+    <input
       type="button"
-      class="btn btn-info"
+      class="btn btn-info bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
       value="Login"
       (click)="MyLoginFunction(fr.value)"
     />
-    <a routerLink="/register" class="btn btn-info">Click Here</a>
+    <a
+      routerLink="/register"
+      class="btn btn-info bg-blue-500 hover:bg-blue-700 text-white font-bold mx-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      >Click Here</a
+    >
     <p [class]="applycss().c">{{ message }}</p>
-
   </div>
-  {{isEmployee | json}}
+  {{ isEmployee | json }}
 </form>
