@@ -14,7 +14,7 @@ export class HrComponent {
   employees: any;
 
   constructor(public o: APIServiceService) {
-    this.o.getCourses().subscribe({
+    this.o.getCoursees().subscribe({
       next: (res) => {
         this.employees = res;
       },
@@ -27,9 +27,9 @@ export class HrComponent {
       StartDate: value.StartDate,
       EndDate: value.EndDate,
     };
-    this.o.addcourse(body).subscribe((res) => {
+    this.o.Addcourse(body).subscribe((res) => {
       alert(res);
-      this.o.getCourses().subscribe({
+      this.o.getCoursees().subscribe({
         next: (res) => {
           this.employees = res;
         },

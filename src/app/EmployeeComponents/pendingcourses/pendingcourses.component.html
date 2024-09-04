@@ -7,6 +7,10 @@
 
 <!-- <p>{{ pendingcourses | json }}</p> -->
 
+@if(pendingcourses?.length == 0) {
+<h1>No Pendingcourses</h1>
+}
+
 <div class="flex justify-between flex-wrap mx-2">
   @for (item of pendingcourses; track $index) {
   <app-card

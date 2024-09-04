@@ -35,20 +35,31 @@ export class APIServiceService {
   EnrollCourse(enroll: any) {
     return this.hc.post(
       `https://localhost:7083/api/Employee/enrollcourse`,
-      enroll
+      enroll,
+      {
+        headers: {
+          'Content-Type': 'application/json', // Ensure the content type is JSON
+        },
+      }
     );
   }
 
-  CompleteCourse(empid: number, enrollMentId: number) {
+  CompleteCourse(empid?: number, enrollMentId?: number) {
     return this.hc.put(
-      `https://localhost:7083/api/Employee/completecourse?empid=${empid}&enrollMentId=${enrollMentId}`,
-      {}, // Empty body
+      `https://localhost:7083/api/Employee/completecourse?empid=${empid}&enrollMentId=${enrollMentId}`, // Empty body
       {
         headers: {
           'Content-Type': 'application/json',
         },
+        responseType: 'text',
       }
     );
+  }
+
+  Addcourse(body: any) {
+    return this.hc.post('https://localhost:7083/api/Course/addcourse', body, {
+      responseType: 'text',
+    });
   }
 
   CancelCourse(cancelCourse: any) {

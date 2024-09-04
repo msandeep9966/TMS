@@ -6,10 +6,14 @@
 </button>
 
 <!-- <p>{{ pendingcourses | json }}</p> -->
-
+@if(activecourses?.length == 0) {
+<h1>No Active courses</h1>
+}
 <div class="flex justify-between flex-wrap mx-2">
   @for (item of activecourses; track $index) {
   <app-card
+    [courseId]="item.courseDetails.courseId"
+    [enrollmentId]="item.enrollmentId"
     [courseName]="item.courseDetails.courseName"
     [startDate]="item.courseDetails.startDate"
     [endDate]="item.courseDetails.endDate"
