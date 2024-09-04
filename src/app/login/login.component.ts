@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { APIServiceService } from '../apiservice.service';
-import { outputFromObservable } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-login',
@@ -47,15 +46,21 @@ export class LoginComponent {
         password: frm.password,
       };
       this.o.login(body).subscribe({
-        next: (res) => {
-          this.isEmployee = res;
-          if (res) {
+        next: (res:any) => {
+          this.isEmployee = res[0].isEmployee;
+          console.log(res[0]);
+          if (this.isEmployee) {
             sessionStorage.setItem('userType', 'employee');
-            this.r.navigate(['/employee']).then(() => {
+            sessionStorage.setItem('employeeId', res[0].employeeId);
+            sessionStorage.setItem('managerId', res[0].managerId);
+            sessionStorage.setItem('userName', res[0].userName);
+            this.r.navigate(['']).then(() => {
               window.location.reload();
             });
           } else {
             sessionStorage.setItem('userType', 'manager');
+            sessionStorage.setItem('managerId', res[0].managerId);
+            sessionStorage.setItem('userName', res[0].userName);
             this.r.navigate(['']).then(() => {
               window.location.reload();
             });

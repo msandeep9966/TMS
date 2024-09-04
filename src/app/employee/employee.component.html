@@ -1,1 +1,37 @@
 <p>employee works!</p>
+
+<table style="width: 100%; display: table; border: 1px solid black; margin-top: 20px;">
+  <tr style="background-color: green; color: white; font-size: large;">
+    <th>courseId</th>
+    <th>courseName</th>
+    <th>startdate</th>
+    <th>enddate</th>
+  </tr>
+  <tr *ngFor="let course of courses">
+    <td>{{course.courseId}}</td>
+    <td>{{course.courseName}}</td>
+    <td>{{course.startDate | date}}</td>
+    <td>{{course.endDate | date}}</td>
+    <td><button (click)="enroll(course.courseId)">Enroll</button></td>
+  </tr>
+</table>
+
+<table style="width: 100%; display: table; border: 1px solid black; margin-top: 20px;">
+  <tr style="background-color: green; color: white; font-size: large;">
+    <th>enrollmentId</th>
+    <th>courseId</th>
+    <th>courseName</th>
+    <th>StartDate</th>
+    <th>EndDate</th>
+    <th>status</th>
+
+  </tr>
+  <tr *ngFor="let course of enrolledCourses">
+    <td>{{course.enrollmentId}}</td>
+    <td>{{course.courseDetails.courseId}}</td>
+    <td>{{course.courseDetails.courseName}}</td>
+    <td>{{course.courseDetails.startDate | date}}</td>
+    <td>{{course.courseDetails.endDate | date}}</td>
+    <td>{{course.status}}</td>
+  </tr>
+</table>

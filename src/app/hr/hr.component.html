@@ -1,14 +1,26 @@
 <p>hr works!</p>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Phone</th>
+
+<table style="width: 100%; display: table; border: 1px solid black; margin-top: 20px;">
+  <tr style="background-color: green; color: white; font-size: large;">
+    <th>courseId</th>
+    <th>courseName</th>
+    <th>startdate</th>
+    <th>enddate</th>
   </tr>
-  <tr *ngFor="let employee of employees">
-    <td>{{employee.name}}</td>
-    <td>{{employee.email}}</td>
-    <td>{{employee.phone}}</td>
+  <tr *ngFor="let emp of employees">
+    <td>{{emp.courseId}}</td>
+    <td>{{emp.courseName}}</td>
+    <td>{{emp.startDate | date}}</td>
+    <td>{{emp.endDate | date}}</td>
   </tr>
 </table>
+
+<form #fr="ngForm" (ngSubmit)="onSubmit(fr.value)">
+  <input type="text" name="CourseName" ngModel required placeholder="courseName">
+  <input type="text" name="StartDate" ngModel required placeholder="startDate">
+  <input type="text" name="EndDate" ngModel required placeholder="endDate">
+  <button type="submit" [disabled]="fr.invalid">Add</button>
+</form>
+
+
