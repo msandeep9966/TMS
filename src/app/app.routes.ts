@@ -4,12 +4,12 @@ import { HomeComponent } from './home/home.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { ManagerComponent } from './manager/manager.component';
 import { AuthGuard } from './auth.guard';
-import { HrComponent } from './hr/hr.component';
 import { LogoutComponent } from './logout/logout.component';
 import { DisplaycoursesComponent } from './EmployeeComponents/diplaycourses/diplaycourses.component';
 import { PendingcoursesComponent } from './EmployeeComponents/pendingcourses/pendingcourses.component';
 import { ActivecoursesComponent } from './EmployeeComponents/activecourses/activecourses.component';
 import { CompletedcoursesComponent } from './EmployeeComponents/completedcourses/completedcourses.component';
+import { HrComponent } from './hr/hr.component';
 
 export const routes: Routes = [
   {
