@@ -21,4 +21,19 @@ export class EmployeeService {
   getCoursesenrolled(empid: number){
     return this.hc.get(`https://localhost:7083/api/Employee/getcoursesbyempid?empid=${empid}`);
   }
+
+  cancelCourse(body: any){
+    return this.hc.post("https://localhost:7083/api/Employee/cancelcourse", body, {
+      responseType: 'text'
+    });
+  }
+
+  getPendingCourses(empid: number){
+    return this.hc.get(`https://localhost:7083/api/Employee/getpendingcourse?empid=${empid}`);
+  }
+
+  getActiveCourses(empid: number){
+    return this.hc.get(`https://localhost:7083/api/Employee/getactivecourse?empid=${empid}`);
+  }
+
 }

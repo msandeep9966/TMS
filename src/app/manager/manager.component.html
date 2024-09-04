@@ -1,1 +1,57 @@
 <p>manager works!</p>
+
+<table
+  style="width: 100%; display: table; border: 1px solid black; margin-top: 20px"
+>
+  <tr style="background-color: green; color: white; font-size: large">
+    <th>EmployeeId</th>
+    <th>EmployeeName</th>
+  </tr>
+  <tr *ngFor="let emp of employees">
+    <td>{{ emp.employeeId }}</td>
+    <td>{{ emp.employeeName }}</td>
+    <td>
+      <button (click)="getEmpCourses(emp.employeeId)">
+        Show Employee Courses
+      </button>
+    </td>
+  </tr>
+</table>
+
+<table
+  style="width: 100%; display: table; border: 1px solid black; margin-top: 20px"
+>
+  <tr style="background-color: green; color: white; font-size: large">
+    <th>EmployeeName</th>
+    <th>EmployeeId</th>
+    <th>CourseName</th>
+  </tr>
+  <tr *ngFor="let course of employeeCourses">
+    <td>{{ course.employeeName }}</td>
+    <td>{{ course.employeeId }}</td>
+    <td>{{ course.courseName }}</td>
+    <td>
+      <button
+        (click)="approveCourse(course.courseId, course.employeeId)"
+        class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+      >
+        Approve
+      </button>
+    </td>
+    <!-- <p>chech the code here</p> -->
+    <td>
+      <button
+        class="text-white bg-red-600 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+        (click)="
+          rejectCourse(course.courseId, rejectedReason, course.employeeId)
+        "
+      >
+        Reject
+      </button>
+    </td>
+    <td>
+      <input type="text" name="reason" />
+    </td>
+    <!-- <p>chech the code here</p> -->
+  </tr>
+</table>
