@@ -26,12 +26,36 @@
     <th>status</th>
 
   </tr>
-  <tr *ngFor="let course of enrolledCourses">
+  <tr *ngFor="let course of pendingCourses">
     <td>{{course.enrollmentId}}</td>
     <td>{{course.courseDetails.courseId}}</td>
     <td>{{course.courseDetails.courseName}}</td>
     <td>{{course.courseDetails.startDate | date}}</td>
     <td>{{course.courseDetails.endDate | date}}</td>
     <td>{{course.status}}</td>
+    <td><button *ngIf="course.status == 'Pending'" (click)="cancel(course.enrollmentId)">Cancel</button></td>
   </tr>
 </table>
+
+<table style="width: 100%; display: table; border: 1px solid black; margin-top: 20px;">
+  <tr style="background-color: green; color: white; font-size: large;">
+    <th>enrollmentId</th>
+    <th>courseId</th>
+    <th>courseName</th>
+    <th>StartDate</th>
+    <th>EndDate</th>
+    <th>status</th>
+
+  </tr>
+  <tr *ngFor="let course of activeCourses">
+    <td>{{course.enrollmentId}}</td>
+    <td>{{course.courseDetails.courseId}}</td>
+    <td>{{course.courseDetails.courseName}}</td>
+    <td>{{course.courseDetails.startDate | date}}</td>
+    <td>{{course.courseDetails.endDate | date}}</td>
+    <td>{{course.status}}</td>
+    <td><button *ngIf="course.status == 'Approved'" (click)="cancel(course.enrollmentId)">Cancel</button></td>
+  </tr>
+</table>
+
+
