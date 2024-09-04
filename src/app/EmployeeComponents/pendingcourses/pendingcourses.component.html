@@ -10,6 +10,7 @@
 <div class="flex justify-between flex-wrap mx-2">
   @for (item of pendingcourses; track $index) {
   <app-card
+    [enrollmentId]="item.enrollmentId"
     [courseName]="item.courseDetails.courseName"
     [startDate]="item.courseDetails.startDate"
     [endDate]="item.courseDetails.endDate"

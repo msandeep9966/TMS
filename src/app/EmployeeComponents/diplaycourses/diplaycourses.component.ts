@@ -17,4 +17,14 @@ export class DisplaycoursesComponent {
   GetCourses() {
     this.o.getCoursees().subscribe((res) => (this.courses = res));
   }
+  SubmitCourses() {
+    if (this.o.courses.length == 0) {
+      console.error('Add cources to enroll');
+      return; // Early exit if courseid is not provided
+    }
+    this.o.EnrollCourse(this.o.courses).subscribe((res) => {
+      this.r.navigate(['/employee/pendingcourses']);
+    });
+    console.log(this.o.courses.length);
+  }
 }

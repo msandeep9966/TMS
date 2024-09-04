@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class APIServiceService {
   constructor(public hc: HttpClient) {}
+  courses: any[] = [];
 
   login(body: any) {
     return this.hc.post('https://localhost:7083/api/login/loginuser', body);
@@ -49,4 +50,30 @@ export class APIServiceService {
       }
     );
   }
+
+  CancelCourse(cancelCourse: any) {
+    return this.hc.post(
+      `https://localhost:7083/api/Employee/cancelcourse`,
+      cancelCourse
+    );
+  }
+
+  // GoingToBeEnrolled(
+  //   CourseId?: number,
+  //   courseName?: string,
+  //   startDate?: string,
+  //   endDate?: string
+  // ) {
+  //   this.courses.push({
+  //     courseId: CourseId,
+  //     courseName: courseName,
+  //     startDate: startDate,
+  //     endDate: endDate,
+  //   });
+  //   // this.courses.forEach((course) => {
+  //   //   console.log('Course ID:', course.courseId);
+  //   //   console.log('Course Name:', course.courseName);
+  //   // });
+  //   return this.courses.length;
+  // }
 }
